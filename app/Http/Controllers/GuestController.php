@@ -23,7 +23,7 @@ class GuestController extends Controller
                 'title'=>'required | string',
                 'author'=>'required | string',
                 'description'=>'required | string',
-                'date'=>'required | date',
+                'release_date'=>'date',
             ]
         );
         $post = Post::create($data);
