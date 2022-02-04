@@ -10962,11 +10962,6 @@ a.text-dark:focus {
   }
 }
 
-* {
-  background-color: aqua;
-  text-align: center;
-}
-
 .logout-button {
   border: 1px solid black;
 }
