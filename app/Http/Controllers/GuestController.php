@@ -20,13 +20,13 @@ class GuestController extends Controller
     public function store(Request $request){
         $data = $request -> validate(
             [
-                'title'=>'required|string',
-                'author'=>'required|string',
-                'description'=>'required|string',
-                'date'=>'required|date',
+                'title'=>'required | string',
+                'author'=>'required | string',
+                'description'=>'required | string',
+                'date'=>'required | date',
             ]
         );
-        $posts = Post::create($data);
+        $post = Post::create($data);
         return redirect()->route('posts');
 
     }

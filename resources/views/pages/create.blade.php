@@ -31,6 +31,6 @@
         <label for="release_date">Release date:</label>
         <input type="date" name="release_date"><br>
         
-        <input type="submit" value="update">
+        <input type="submit" value="new post">
     </form>
 @endsection

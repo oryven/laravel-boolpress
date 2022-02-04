@@ -21,11 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'GuestController@home')->name('home');
+
 Route::post('/login', 'Auth\LoginController@login') -> name('login');
 Route::post('/register', 'Auth\RegisterController@register') -> name('register');
 Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 
-Route::get('/posts', 'GuestController@index')->name('posts');;
+Route::get('/posts', 'GuestController@index')->name('posts');
 Route::get('/posts/create', 'GuestController@create')->name('create');
 Route::post('create/store', 'GuestController@store')->name('store');
 // store?
