@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Post;
+use App\Category;
 
 use Illuminate\Http\Request;
 
@@ -12,8 +13,10 @@ class GuestController extends Controller
     }
     
     public function create(){
-        return view('pages.create');
+        $categories = Category::all();
+        return view('pages.create', compact('categories'));
     }
+
     public function store(Request $request){
         $data = $request -> validate(
             [
@@ -25,6 +28,5 @@ class GuestController extends Controller
         );
         $post = Post::create($data);
         return redirect()->route('posts');
-
     }
 }
