@@ -5,7 +5,7 @@
     
     @foreach ($posts as $post)
     <li>
-        {{$post -> title }}, {{$post -> author }}, {{$post -> description}} {{$post -> release_date}} <br><hr>
+        {{$post -> title }}, {{$post -> author }}, {{$post -> description}}, {{$post -> release_date}}, {{ $post->category->name }} <br><hr>
 
     </li>      
     @endforeach

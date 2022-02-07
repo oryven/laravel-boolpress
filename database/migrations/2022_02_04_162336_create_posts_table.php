@@ -19,7 +19,11 @@ class CreatePostsTable extends Migration
             $table->string('author');
             $table->text('description');
             $table->date('release_date');
+
             $table->timestamps();
+            
+            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id') -> on('categories');
         });
     }
 

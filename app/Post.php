@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
     protected $fillable = [
 
         'title',
@@ -13,4 +14,9 @@ class Post extends Model
         'description',
         'release_date'
     ];
+
+    public function category() {
+        return $this -> belongsTo(Category::class);
+    }
+    
 }
