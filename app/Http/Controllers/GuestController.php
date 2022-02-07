@@ -10,10 +10,7 @@ class GuestController extends Controller
     public function home(){
         return view('pages.home');
     }
-    public function index(){
-        $posts = Post::all();
-        return view('pages.index', compact('posts'));
-    }
+    
     public function create(){
         return view('pages.create');
     }
