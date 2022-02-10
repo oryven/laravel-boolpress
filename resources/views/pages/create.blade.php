@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
 <h1>Scrivi un post</h1>
 
 <form action="{{ route('post.store') }}" method="post">
@@ -13,7 +23,7 @@
     <input type="text" name="title" placeholder="Titolo"><br>
 
     <label for="description">Descrizione:</label>
-    <textarea name="name"></textarea>
+    <textarea name="description"></textarea>
     <br>
     <select name="category_id">
         @foreach ($categories as $category)

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Category;
@@ -35,10 +36,10 @@ class HomeController extends Controller
         'description' => 'required'
     ]);
 
-    // $datas['author'] = Auth::user() -> name;
+    $datas['author'] = Auth::user() -> name;
     $post = Post::make($datas);
 
-    $category = Category::findOrFail($request -> get('category'));
+    $category = Category::findOrFail($request -> get('category_id'));
     $tags = Tag::findOrFail($request -> get('tags'));
 
     $post -> category() -> associate($category);
@@ -50,5 +51,5 @@ class HomeController extends Controller
     $post -> save();
 
     return redirect() -> route('home');
-}
+    }
 }
