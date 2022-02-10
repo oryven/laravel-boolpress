@@ -28,4 +28,6 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 Route::middleware('auth')->group(function() {
 Route::get('post/create', 'HomeController@create') -> name('post.create');
 Route::post('post/store', 'HomeController@store') -> name('post.store');
+Route::get( 'post/edit/{id}', 'HomeController@edit') -> name('post.edit');
+Route::post( 'post/update/{id}', 'HomeController@update') -> name('post.update');
 });

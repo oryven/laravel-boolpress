@@ -25,7 +25,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-    return view('pages.create', compact('categories', 'tags'));
+    return view('pages.create', compact ('categories', 'tags'));
    }
 
    public function store(Request $request) {
@@ -51,5 +51,37 @@ class HomeController extends Controller
     $post -> save();
 
     return redirect() -> route('home');
+    }
+
+    public function edit($id){
+
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        $post = Post::findOrFail($id);
+
+    return view('pages.edit', compact ('categories', 'tags', 'post'));
+    }
+
+    public function update(Request $request, $id) {
+ $datas = $request -> validate([
+            'title' => 'required|string|min:3',
+            'description' => 'required|'
+        ]);
+
+        $datas['author'] = Auth::user() -> name;
+
+        $post = Post::findOrFail($id);
+        $post -> update($datas);
+
+        $category = Category::findOrFail($request -> get('category_id'));
+        $post -> category() -> associate($category);
+        $post -> save();
+
+        $tags = Tag::findOrFail($request -> get('tags'));
+        $post -> tags() -> sync($tags);
+        $post -> save();
+
+        return redirect() -> route('home');
     }
 }

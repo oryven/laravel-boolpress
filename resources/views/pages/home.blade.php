@@ -15,6 +15,8 @@
         @foreach ($post -> tags as $tag)
             {{$tag -> name}}
         @endforeach
+
+        <a href="{{ route ('post.edit', $post -> id) }}">edit</a>
         <br>
         <hr>
     </li>      
